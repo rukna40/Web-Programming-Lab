@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine Front Cover Generator</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Magazine Front Cover Generator</h1>
+
+    <!-- Form to input image, color, text, and font -->
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Generate Magazine Cover</button>
+    </form>
+
+    <!-- Display the generated magazine cover after form submission -->
+    {% if title_text %}
+    <div class="magazine-cover" style="background-image: url('{{ image.url }}'); background-color: {{ background_color }};">
+        <div class="magazine-text" style="--font-size: {{ font_size }}px; --font-color: {{ font_color }};">
+            <h1 class="magazine-title">{{ title_text }}</h1>
+            <h2 class="magazine-subtitle">{{ subtitle_text }}</h2>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>
