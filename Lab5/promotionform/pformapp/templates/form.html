@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Promotion Eligibility</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+
+    <h1>Employee Promotion Eligibility</h1>
+
+    <form onsubmit="checkEligibility(); return false;" style="margin-bottom: 20px;">
+        <div style="margin-bottom: 15px;">
+            <label for="employeeId">Employee ID:</label>
+            <select id="employeeId" style="width: 100%; padding: 8px;">
+                <option value="E001">E001</option>
+                <option value="E002">E002</option>
+                <option value="E003">E003</option>
+                <option value="E004">E004</option>
+                <option value="E005">E005</option>
+            </select>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="doj">Date of Joining:</label>
+            <input type="date" id="doj" style="width: 100%; padding: 8px;" required>
+        </div>
+
+        <button type="submit" style="padding: 10px 15px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Am I Eligible for Promotion?</button>
+    </form>
+
+    <div style="margin-top: 20px;">
+        <label for="eligibility">Promotion Eligibility: </label>
+        <span id="eligibility">-</span>
+    </div>
+
+    <script>
+        function checkEligibility() {
+            var doj = document.getElementById("doj").value;
+            var currentDate = new Date();
+            var dateOfJoining = new Date(doj);
+            var yearsOfExperience = currentDate.getFullYear() - dateOfJoining.getFullYear();
+
+            if (currentDate.getMonth() < dateOfJoining.getMonth() || (currentDate.getMonth() === dateOfJoining.getMonth() && currentDate.getDate() < dateOfJoining.getDate())) {
+                yearsOfExperience--;
+            }
+
+            if (yearsOfExperience > 5) {
+                document.getElementById("eligibility").innerText = "YES";
+            } else {
+                document.getElementById("eligibility").innerText = "NO";
+            }
+        }
+    </script>
+
+</body>
+</html>

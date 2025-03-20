@@ -1,0 +1,47 @@
+/* General styles for the pages */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Book Cover Styling */
+.book-cover img {
+    border: 5px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Navigation Links */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+nav ul li a:hover {
+    color: #45a049;
+}
+
+/* Reviews and Metadata Styling */
+.review {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
